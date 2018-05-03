@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Tunneling Particles</title>
+    <script src="main.js"></script>
+    <link rel="icon" href="img/proton.png" />
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML"></script>
+
+</head>
+<body onload="move()">
+    <div id="background">
+        <br />
+        <div id="titlecontainer">
+            <img src="img/electron.png" class="electron" id="electron1" />
+            <h1 id="title">Tunneling Particles</h1>
+            <p style="padding-bottom:10px;margin:0;">by Charlotte Cullip</p>
+            <div class="disclaimer">
+                <p id="disclaimer" style="padding:0px;">Disclaimer</p>
+                <span class="disclaimerText">This interactive document assumes some prior knowledge of chemistry and quantum physics.</span>
+            </div>
+        </div>
+        <p style="text-align:center;">
+            <i>Particles moving through walls? Is it magic? Is it sorcery? Wellll.... not quite. But electrons can tunnel, and they do it quite often, too.</i>
+        </p>
+        <p>
+            In classical physics, particles can be contained within a potential energy well—or a “box” that has zero potential
+            energy inside and infinite potential energy at the edges. The particle oscillates within the box in a wave-like manner. This can be described with
+            the wave-particle duality theory, which posits that particles, such as electrons, exhibit both particle- and wave-like behavior. Scientists
+            have observed experimentally that electrons do obey these classical laws in some scenarios. For example, in a 1-dimensional box with V = 0 inside the box
+            and V = &#8734; at each wall, classical physics is sufficient to explain the particle’s motion.
+        </p>
+        <br />
+        <div id="animationContainer2">
+            <div class="wall" id="leftwall2"><p class="potentialbarriertext">V = &#8734;</p></div>
+            <div class="leftside" id="leftside2"><p class="potentialbarriertext">V = 0</p></div>
+            <div class="wall" id="rightwall2"><p class="potentialbarriertext">V = &#8734;</p></div>
+            <div class="line" id="line2"></div>
+            <img src="img/proton.png" class="proton" id="proton2" />
+            <div class="slidecontainer">
+                <p class="slidertext">Kinetic Energy</p>
+                <input type="range" min="1" max="180" value="90" class="energy" id="energy2">
+                <hgroup class="speech-bubble" style="margin-top:40px;margin-left:10px;">
+                    <h1 style="font-size:small;color:white;font-family:Arial;padding:5px;font-weight:400;">Try changing the kinetic energy of the particle!</h1>
+                </hgroup>
+            </div>
+        </div>
+        <div id="smallButtonContainer">
+            <button id="s" class="button" onclick="animationManager('start', 'proton2', 128, 'energy2')">Start</button>
+            <button id="s" class="button" onclick="animationManager('stop', 'proton2', 128, 'energy2')">Stop</button>
+            <button id="r" class="button" onclick="animationManager('reset', 'proton2', 128, 'energy2')">Reset</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>
+            However, upon lowering the potential energy past a certain threshold, scientists observed particles traveling into the
+            barrier, i.e. the classically forbidden region. To explain this phenomenon, physicists turned to quantum theory, which
+            states that particles are allowed to tunnel through the barrier if the potential energy, V, is less than infinity but greater than the kinetic energy, E.
+            When a particle reaches this barrier with 
+            E < V < &#8734;, it can either continue through the wall or be reflected and continue in the opposite direction. The
+            probability of the particle being transmitted through the barrier is described by the following equation:
+            `P = e^((-4Lpi)/hsqrt(2m(V-E)`.
+        </p>
+        <p>
+            The probability of tunneling is dependent on the particle’s mass, <i>m</i>, the particle’s energy, <i>E</i>, the potential
+            energy, <i>V</i>, and the barrier width, <i>L</i>. Less mass, higher kinetic energy, lower potential energy, and a thinner
+            barrier would all increase the probability of transmission. As the potential energy and the barrier width increase toward
+            infinity, the probability reduces to P = 0, which follows the classical assumption. Additionally, as the kinetic energy approaches
+            the potential energy, P &#8594; 1, and when E >> V, the probability of tunneling is 1. For the following examples,
+            we will simplify the equation to be either P = 1 (100% chance of tunneling) or P = 0 (0% chance of tunneling) in order
+            to show the motion of the particle in each situation.
+        </p>
+        <br />
+        <br />
+        <div id="animationContainer2">
+            <div class="wall"><p class="potentialbarriertext">V = &#8734;</p></div>
+            <div class="leftside" id="leftside3"><p class="potentialbarriertext">V = 0</p></div>
+            <div class="wall"><p class="potentialbarriertext">V > E</p></div>
+            <div class="line" id="line2"></div>
+            <img src="img/proton.png" class="proton" id="proton3" />
+            <div class="slidecontainer" style="margin-top:5px;">
+                <p class="slidertext">Kinetic Energy</p>
+                <input type="range" min="1" max="180" value="90" class="energy" id="energy3">
+                <br />
+                <br />
+                <br />
+                <p class="slidertext">Tunneling</p>
+                <label class="switch">
+                    <input id="tunneling1" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <hgroup class="speech-bubble" style="margin-top:40px;margin-left:10px;">
+                    <h1 style="font-size:small;color:white;font-family:Arial;padding:5px;font-weight:400;">Try turning the tunneling on!</h1>
+                </hgroup>
+            </div>
+        </div>
+        <div id="smallButtonContainer">
+            <button id="s" class="button" onclick="animationManager('start', 'proton3', 100, 'energy3')">Start</button>
+            <button id="s" class="button" onclick="animationManager('stop', 'proton3', 100, 'energy3')">Stop</button>
+            <button id="r" class="button" onclick="animationManager('reset', 'proton3', 100, 'energy3')">Reset</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>
+            Upon entering the barrier, the particle will exponentially lose energy as it moves to the right. If the potential energy
+            barrier is not infinitely wide, the particle can tunnel through the barrier and resume oscillation on the other side. We can
+            see that the energy lost while traveling through the barrier is not regained upon exiting the barrier. Instead, the particle's final
+            energy is equal to the energy of the particle at the right edge of the barrier. The
+            amplitude of the wave on the right side of the barrier will therefore depend on the width of the barrier and the initial
+            kinetic energy of the particle. By increasing the particle’s energy and decreasing the barrier width, the majority of the
+            original energy can be maintained.
+        </p>
+        <br />
+        <br />
+        <div id="animationContainer">
+            <div class="wall"><p class="potentialbarriertext">V = &#8734;</p></div>
+            <div class="leftside" id="leftside2"><p class="potentialbarriertext">V = 0</p></div>
+            <div class="wall" id="rightwall"><p class="potentialbarriertext">V > E</p></div>
+            <div class="rightside" id="rightside2"><p class="potentialbarriertext">V = 0</p></div>
+            <div class="line" id="line8"></div>
+            <img src="img/proton.png" class="proton" id="proton4" />
+            <div class="slidecontainer" style="margin-top:0px;padding-top:0px;">
+                <p class="slidertext">Kinetic Energy</p>
+                <input type="range" min="1" max="180" value="90" class="energy" id="energy4">
+                <br />
+                <br />
+                <p class="slidertext">Tunneling</p>
+                <label class="switch">
+                    <input id="tunneling2" type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+                <p class="slidertext">Potential Energy Barrier Width</p>
+                <input type="range" min="100" max="300" value="100" class="potential" id="barrier1" onchange="changeBarrier('barrier1', 'rightwall', 'rightside2')">
+                <br />
+                <hgroup class="speech-bubble" style="margin-top:40px;margin-left:10px;">
+                    <h1 style="font-size:small;color:white;font-family:Arial;padding:5px;font-weight:400;">Try adjusting the barrier width!</h1>
+                </hgroup>
+            </div>
+        </div>
+        <div id="largeButtonContainer">
+            <button id="s" class="button" onclick="animationManager('start', 'proton4', 128, 'energy4')">Start</button>
+            <button id="s" class="button" onclick="animationManager('stop', 'proton4', 128, 'energy4')">Stop</button>
+            <button id="r" class="button" onclick="animationManager('reset', 'proton4', 128, 'energy4')">Reset</button>
+        </div>
+        <br />
+        <br />
+        <p>
+            At this point, hopefully the general concepts of electron tunneling are clearer. Let's look at how these ideas can be used in a real-world example:
+        </p>
+        <div style="background-color: lightgrey;margin:30px;border:2px solid grey">
+            <p style="font-weight: bold;">
+                Example:
+            </p>
+            <p>
+                <br />
+                If an electron of kinetic energy, E = 1.50 eV, approaches a barrier with potential energy, V = 3.00 eV and width L = 400 pm, calculate the probability of the 
+                electron tunneling through the barrier. 
+            <br />
+           
+                Using the tunneling probability equation from above, we can plug in the values for E, V, and L, along with the mass of the electron and Planck's constant:
+            <br />
+            <p style="text-align:center">
+                
+                Plug the given values into the equation, making sure to change eV to Joules:
+                <br />
+                <br />
+                `P = e^((-4Lpi)/hsqrt(2m(V-E))`
+                <br />
+                `P = e^((-4(4.00 x 10^-12)pi)/(6.628 x 10^(-34))sqrt(2(9.11 x 10^(-31))(3.00-1.50)(1.60 x 10^(-19)))`
+                <br />
+                `P = 0.00663 = 0.663%`
+            </p>
+            </div>
+        <p>
+            From the above example, we can see that the electron has a 0.663% chance of tunneling. Although this value seems very small, typical tunneling probabilities
+            can range from zero (potential energy is infinite) all the way to 100% (potential energy is equal to kinetic energy).
+            The following exercises will build on this example, so try working through them to test your knowledge. 
+        </p>
+        <div style="background-color:lightblue;margin:30px; border: 2px solid black">
+
+            <p style="font-weight:bold;">
+                Exercises
+                <br />
+            </p>
+            <p><i>Click on your desired answer for instant feedback.</i></p>
+            <p>
+                1) The values for the electron's kinetic energy and the barrier width from the Example remain constant, but the potential energy changes to 1.70 eV.
+                <br />
+
+            </p>
+            <p style="padding-left:100px;">
+                a) Conceptually, what happens to the tunneling probability?
+            </p>
+            <div style="padding-left:140px;">
+                <p id="ans1a" style="cursor:pointer" onclick="click1('incorrect1', 'correct1');color(this, 'red')">(a) It doesn't change</p>
+                <p id="ans1b" style="cursor:pointer" onclick="click1('correct1', 'incorrect1');color(this, 'green')">(b) It increases</p>
+                <p id="ans1c" style="cursor:pointer" onclick="click1('incorrect1', 'correct1');color(this, 'red')">(c) It decreases</p>
+            </div>
+            <p style="padding-left:100px;">
+                b) What is the tunneling probability?
+            </p>
+            <div style="padding-left:140px;">
+                <p id="ans2a"style="cursor:pointer" onclick="click1('incorrect2', 'correct2');color(this, 'red')">(a) 45.9%</p>
+                <p id="ans2b" style="cursor:pointer" onclick="click1('correct2', 'incorrect2');color(this, 'green')">(b) 16.0%</p>
+                <p id="ans2c" style="cursor:pointer" onclick="click1('incorrect2', 'correct2');color(this, 'red')">(c) 0.66%</p>
+                <p id="ans2d" style="cursor:pointer" onclick="click1('incorrect2', 'correct2');color(this, 'red')">(c) 66.4%</p>
+            </div>
+            <p>
+                2) True or False: If we use a proton instead of an electron, the tunneling probability will not be affected.
+            </p>
+            <div style="padding-left:140px;">
+                <p id="ans3a" style="cursor:pointer" onclick="click1('incorrect3', 'correct3');color(this, 'red')">True</p>
+                <p id="ans3b" style="cursor:pointer" onclick="click1('correct3', 'incorrect3');color(this, 'green')">False</p>
+            </div>
+            <p>
+                3) Given a 1-Dimensional box with a potential energy barrier width of L = 200 pm and an electron with E = 1.50 eV, what is the potential energy necessary to give a tunneling probability of 50%?
+            </p>
+            <div style="padding-left:140px;">
+                <p id="ans4a" style="cursor:pointer" onclick="click1('incorrect4', 'correct4');color(this, 'red')">(a) 1.709 eV</p>
+                <p id="ans4b" style="cursor:pointer" onclick="click1('incorrect4', 'correct4');color(this, 'red')">(b) 16.37 eV</p>
+                <p id="ans4c" style="cursor:pointer" onclick="click1('incorrect4', 'correct4');color(this, 'red')">(c) 2.103 eV</p>
+                <p id="ans4d" style="cursor:pointer" onclick="click1('correct4', 'incorrect4');color(this, 'green')">(c) 1.615 eV</p>
+            </div>
+            
+
+            <div style="width:500px;height:100px;float:left;position:absolute;top:3400px;left:700px;z-index:3">
+                <p id="correct1" style="padding:0px;color:green;position:absolute;z-index:1;visibility:hidden;">
+                    Correct! As the potential energy decreases and approaches the kinetic energy, the particle has a higher chance of penetrating the barrier.
+                </p>
+                <p id="incorrect1" style="padding:0px;color:red;position:absolute;z-index:2;visibility:hidden;">
+                    Try again! Think about what's happening as the potential energy gets closer to the value of the kinetic energy.
+                </p>
+            </div>
+
+            <div style="width:500px;height:100px;float:left;position:absolute;top:3580px;left:700px;z-index:3">
+                <p id="correct2" style="padding:0px;color:green;position:absolute;z-index:1;visibility:hidden;">
+                    Correct! We can see that as the potential energy approaches the kinetic energy, the probability increases.
+                </p>
+                <p id="incorrect2" style="padding:0px;color:red;position:absolute;z-index:2;visibility:hidden;">
+                    Try again! Plug in the same values as in the Example problem, but substituting V = 1.70 eV for 3.00 eV.
+                </p>
+            </div>
+            <div style="width:500px;height:100px;float:left;position:absolute;top:3750px;left:700px;z-index:3">
+                <p id="correct3" style="padding:0px;color:green;position:absolute;z-index:1;visibility:hidden;">
+                    Correct! Increasing the mass will decrease the tunneling probability, since more massive particles will need more energy to tunnel through the barrier.
+                </p>
+                <p id="incorrect3" style="padding:0px;color:red;position:absolute;z-index:2;visibility:hidden;">
+                    Try again! Think about how increasing the mass will affect the tunneling probability.
+                </p>
+            </div>
+            <div style="width:500px;height:100px;float:left;position:absolute;top:3930px;left:700px;z-index:3">
+                <p id="correct4" style="padding:0px;color:green;position:absolute;z-index:1;visibility:hidden;">
+                    Correct! If you just used guess-and-check, try to also see how the equation can be rearranged to find V.
+                </p>
+                <p id="incorrect4" style="padding:0px;color:red;position:absolute;z-index:2;visibility:hidden;">
+                    Try again! We need to find V, so try rearranging the equation to solve for V and then plug in the given values.
+                </p>
+            </div>
+            <br />
+
+        </div>
+        <p>
+
+            Particle tunneling, especially electron tunneling, appears in many areas of science and has led to some incredibly important advancements in
+            <a href="https://spectrum.ieee.org/computing/hardware/quantum-transistors-toward-nanoelectronics">quantum computing</a>,
+            <a href="https://www.sciencealert.com/here-s-the-science-behind-why-it-ll-take-us-decades-to-master-nuclear-fusion">astrophysics</a>, and
+            <a href="https://www.the-scientist.com/?articles.view/articleNo/12448/title/Taking-A-Microscopic-View-Of-Biochemistry-And-DNA-Sequencing/">molecular biology</a>.
+            In biology, for instance, particle tunneling has led to the understanding of electron transfer within proteins—which is vital for cellular function in humans.
+            To travel from one part of a protein to another, the electron will tunnel through pseudo barriers, similar to the theoretical particle in a box. By
+            furthering our understanding of quantum theory we will discover more and more about the rules that define our world at a nanoscopic level.
+            <br />
+            <br />
+            In conclusion, although these interactions only skim the surface of quantum chemistry, the underlying concepts of the translational particle motion are fundamental.
+            After the above interactions, example problems, and exercises, I hope you have a deeper understanding of how various factors such as kinetic energy, barrier width,
+            and potential energy affect the tunneling probability of a particle. These key ideas form a basis for further study and will be frequently referenced as you delve
+            deeper into the intriguing field of quantum chemistry. 
+        </p>
+        <br />
+        <br /><br /><br />
+    </div>
+</body>
+</html>
